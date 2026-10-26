@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Theme palette. Components use Tailwind slate-* classes written for dark mode;
+ * each shade resolves to a variable here, and light mode remaps the scale by
+ * role (950 = page bg, 800 = cards, 700 = inputs, 100 = primary text, ...).
+ * The `dark` class on <html> is set by applyPreferences (stores/ui.ts).
+ */
+:root {
+  color-scheme: dark;
+  --slate-50: 248 250 252;
+  --slate-100: 241 245 249;
+  --slate-200: 226 232 240;
+  --slate-300: 203 213 225;
+  --slate-400: 148 163 184;
+  --slate-500: 100 116 139;
+  --slate-600: 71 85 105;
+  --slate-700: 51 65 85;
+  --slate-800: 30 41 59;
+  --slate-900: 15 23 42;
+  --slate-950: 2 6 23;
+  --rose-300: 253 164 175;
+  --rose-400: 251 113 133;
+  --emerald-300: 110 231 183;
+  --emerald-400: 52 211 153;
+  --amber-300: 252 211 77;
+  --amber-400: 251 191 36;
+  --accent-l-100: 90%;
+  --accent-l-200: 80%;
+  --accent-l-300: 70%;
+}
+
+:root:not(.dark) {
+  color-scheme: light;
+  --slate-50: 2 6 23;
+  --slate-100: 15 23 42;
+  --slate-200: 30 41 59;
+  --slate-300: 51 65 85;
+  --slate-400: 71 85 105;
+  --slate-500: 100 116 139;
+  --slate-600: 203 213 225;
+  --slate-700: 226 232 240;
+  --slate-800: 255 255 255;
+  --slate-900: 241 245 249;
+  --slate-950: 248 250 252;
+  --rose-300: 225 29 72;
+  --rose-400: 225 29 72;
+  --emerald-300: 5 150 105;
+  --emerald-400: 5 150 105;
+  --amber-300: 180 83 9;
+  --amber-400: 180 83 9;
+  --accent-l-100: 25%;
+  --accent-l-200: 32%;
+  --accent-l-300: 40%;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body, 'Inter', sans-serif);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

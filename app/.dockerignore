@@ -1,0 +1,8 @@
+# Build context for the nginx/app image. app/.env is intentionally NOT ignored:
+# Vite reads the public VITE_FIREBASE_* values from it at build time.
+node_modules
+dist
+dev-dist
+*.txt
+.env.local
+.env.*.local

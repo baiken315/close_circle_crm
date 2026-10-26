@@ -1,0 +1,59 @@
+node_modules/
+dist/
+dev-dist/
+.vite/
+
+# Env files — contain secrets
+.env
+.env.local
+.env.*.local
+api/.env
+app/.env
+.dev.vars
+
+# DuckDB data
+*.duckdb
+*.duckdb.wal
+
+# Migration source data — personal contact data
+*.csv
+*.vcf
+
+# Logs
+*.log
+npm-debug.log*
+*.tgz
+*.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local Claude session data
+.claude/
+
+# Local DuckDB backups (large, personal data) — keep out of git
+backups/
+
+# Any other env variants (examples are committed)
+.env.*
+!.env.example
+
+# Credentials / keys
+*.pem
+*.key
+*service-account*.json
+.password-reset-token
+
+# Other local databases
+*.db
+*.sqlite
+
+# Local-only deployment details and agent notes (server address, hostnames)
+.deploy.env
+CLAUDE.local.md
+
+# Scratch planning docs
+plan.md

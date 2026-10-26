@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="description" content="Close Circle — Personal CRM for the people who matter most" />
+    <title>Close Circle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;500;600&family=DM+Mono:wght@400;500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --accent-h: 250;
+        --accent-s: 84%;
+        --accent-l: 60%;
+        --font-body: 'Inter', sans-serif;
+        --font-mono: 'DM Mono', monospace;
+        --radius: 0.5rem;
+        --density: 1;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { font-family: var(--font-body); }
+      body { background: #020617; color: #f1f5f9; }
+      html:not(.dark) body { background: #f8fafc; color: #0f172a; }
+    </style>
+    <script>
+      // Apply the cached theme before first paint (kept in sync by stores/ui.ts).
+      (function () {
+        var t = 'system';
+        try { t = localStorage.getItem('cc-theme') || 'system'; } catch (e) {}
+        var dark = t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', dark);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "close-circle-v2",
+  "private": true,
+  "workspaces": [
+    "api",
+    "app"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace=api",
+    "dev:app": "npm run dev --workspace=app",
+    "build:app": "npm run build --workspace=app"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.0.4"
+  }
+}

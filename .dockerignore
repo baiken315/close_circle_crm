@@ -1,0 +1,19 @@
+# Build context for the api image (repo root). The Dockerfile only copies api/ sources
+# and schema.sql; keep secrets, data, and bulk out of the context entirely.
+.git
+**/node_modules
+**/dist
+**/dev-dist
+**/.env
+**/.env.*
+!**/.env.example
+**/.dev.vars
+**/*.duckdb
+**/*.duckdb.wal
+**/*.db
+**/*.csv
+**/*.vcf
+**/*.txt
+backups
+.claude
+.vscode
